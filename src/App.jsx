@@ -11,11 +11,12 @@ import GaleriaDeImagens from './assets/components/GaleriaDeImagens'
 import ListaDeContatos from './assets/components/ListaDeContatos'
 import BuscaDeFilmes from './assets/components/BuscaDeFilmes'
 import Cronometro from './assets/components/Cronometro'
+import Quiz from './assets/components/Quiz'
 
 function App() {
   return (
     <>
-    <Cronometro/>
+    <ListadeTarefas/>
     </>
   )
 }

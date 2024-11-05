@@ -1,0 +1,26 @@
+import { isValidElement, useState } from 'react'
+
+function CadastroDeCelular() {
+    const [marca, setMarca] = useState([])
+    const [modelo, setModelo] = useState([])
+    const [preco, setPreco] = useState([])
+    const [memoria, setMemoria] = useState([])
+    const [cor, setCor] = useState([])
+    const [processador, setProcessador] = useState([])
+    const [composicaoBateria, setComposicaoBateria] = useState([])
+    const [tamanhoTela, setTamanhoTela] =useState([])
+    const [hertzTela, setHertzTela] = useState([])
+    const [camera, setCamera] = useState([])
+    const [sistemaOperacional, setSistemaOperacional] = useState([])
+    const [descricao, setDescricao] = useState([])
+    const [avaliacao, setAvaliacao] = useState([])
+    const [armazenamento, setArmazenamento] = useState([])
+    const [peso, setPeso] = useState([])
+    const [dimnsao, setDimensao] = useState([])
+    const [conector, setConector] = useState([])
+    const [carregador, setCarregador] = useState([])
+    const [numeroDeSerie, setNumeroDeSerie] = useState([])
+    const [fone, setFone] = useState([])
+    const [quantidadeChips, setQuantudadeChips] = useState([])
+    const [entradaMiscroSD, setEntradaMicroSD] = useState([])
+}
