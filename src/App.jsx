@@ -12,11 +12,12 @@ import ListaDeContatos from './assets/components/ListaDeContatos'
 import BuscaDeFilmes from './assets/components/BuscaDeFilmes'
 import Cronometro from './assets/components/Cronometro'
 import Quiz from './assets/components/Quiz'
+import CadastroDeCelular from './assets/components/CadastroDeCelular'
 
 function App() {
   return (
     <>
-    <ListadeTarefas/>
+    <CadastroDeCelular/>
     </>
   )
 }
