@@ -22,23 +22,96 @@ function CadastroDeCelular() {
     const [carregador, setCarregador] = useState([])
     const [numeroDeSerie, setNumeroDeSerie] = useState([])
     const [fone, setFone] = useState([])
-    const [quantidadeChips, setQuantudadeChips] = useState([])
+    const [quantidadeChips, setQuantidadeChips] = useState([])
     const [entradaMiscroSD, setEntradaMicroSD] = useState([])
-    const [novoCelular, setNovoCelular] = useState('')
 
-    const adicionarCelular = () => {
-        if (marca.trim() !== '' && modelo.trim !== '' && preco.trim !== '' && memoria.trim !== '' && cor.trim !== '' && processador.trim !== '' && composicaoBateria.trim !== '' && tamanhoTela.trim !== '' && hertzTela.trim !== '' && camera.trim !== '' && sistemaOperacional.trim !== '' && descricao.trim !== '' && avaliacao.trim !== '' && armazenamento.trim !== '' && peso.trim !== '' && dimensao.trim !== '') {
-            setCelular([marca, modelo, preco, memoria, cor, processador, composicaoBateria, tamanhoTela, hertzTela, camera, sistemaOperacional, descricao, avaliacao, armazenamento, peso, dimensao])
-            
-            setNovoCelular('')
+    function adicionarCelular() {
+        if (marca.trim() !== '' &&
+            modelo.trim !== '' &&
+            preco.trim !== '' &&
+            memoria.trim !== '' &&
+            cor.trim !== '' &&
+            processador.trim !== '' &&
+            composicaoBateria.trim !== '' &&
+            tamanhoTela.trim !== '' &&
+            hertzTela.trim !== '' &&
+            camera.trim !== '' &&
+            sistemaOperacional.trim !== '' &&
+            descricao.trim !== '' &&
+            avaliacao.trim !== '' &&
+            armazenamento.trim !== '' &&
+            peso.trim !== '' &&
+            dimensao.trim !== '' &&
+            conector.trim !== '' &&
+            carregador.trim !== '' &&
+            numeroDeSerie.trim !== '' &&
+            fone.trim !== '' &&
+            quantidadeChips.trim !== '' &&
+            entradaMiscroSD.trim !== '') {
+
+            setCelular((prevCelulares) => [
+                ...prevCelulares, 
+
+                {
+                marca,
+                modelo,
+                preco,
+                memoria,
+                cor,
+                processador,
+                composicaoBateria,
+                tamanhoTela,
+                hertzTela,
+                camera,
+                sistemaOperacional,
+                descricao,
+                avaliacao,
+                armazenamento,
+                peso,
+                dimensao,
+                conector,
+                carregador,
+                numeroDeSerie,
+                fone,
+                quantidadeChips,
+                entradaMiscroSD
+                },
+            ])
+
+            setMarca('')
+            setModelo('')
+            setPreco('')
+            setMemoria('')
+            setCor('')
+            setProcessador('')
+            setComposicaoBateria('')
+            setTamanhoTela('')
+            setHertzTela('')
+            setCamera('')
+            setSistemaOperacional('')
+            setDescricao('')
+            setAvaliacao('')
+            setArmazenamento('')
+            setPeso('')
+            setDimensao('')
+            setConector('')
+            setCarregador('')
+            setNumeroDeSerie('')
+            setFone('')
+            setQuantidadeChips('')
+            setEntradaMicroSD('')
         }
- 
+
     }
+
     const removerCelular = (index) => {
-        const novosCelulares = [...celular]
-        novosCelulares.splice(index, 1)
-        setCelular(novosCelulares)
-    }
+        setCelular((prevCelulares) => {
+            const novosCelulares = [...prevCelulares];
+            novosCelulares.splice(index, 1);
+            return novosCelulares;
+        });
+    };    
+
     return(
 
     <>
@@ -77,16 +150,63 @@ function CadastroDeCelular() {
     <br />
     <input type="text" value={dimensao} onChange={(e) => setDimensao(e.target.value)} placeholder='Digite a dimensão do celular'/>
     <br />
+    <input type="text" value={conector} onChange={(e) => setConector(e.target.value)} placeholder='Digite o conector do celular'/>
+    <br />
+    <input type="text" value={carregador} onChange={(e) => setCarregador(e.target.value)} placeholder='Digite o carregador do celular'/>
+    <br />
+    <input type="text" value={numeroDeSerie} onChange={(e) => setNumeroDeSerie(e.target.value)} placeholder='Digite o número de série do celular'/>
+    <br />
+    <input type="text" value={fone} onChange={(e) => setFone(e.target.value)} placeholder='Digite o fone do celular'/>
+    <br />
+    <input type="text" value={quantidadeChips} onChange={(e) => setQuantidadeChips(e.target.value)} placeholder='Digite a quantidade de chips do celular'/>
+    <br />
+    <input type="text" value={entradaMiscroSD} onChange={(e) => setEntradaMicroSD(e.target.value)} placeholder='Digite a entrada micro SD do celular'/>
+    <br />
     <button onClick={adicionarCelular}>Adicionar</button>
     <ul>
-        {celular.map((celular, index) => (
-            <li key={index}>
-                {celular}{''}
-                <button onClick={() => removerCelular(index)}>Remover</button>
-            </li>
-        ))}
-    </ul>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {celular.map((cel, index) => (
+                    <div
+                        key={index}
+                        style={{
+                            border: '1px solid #ccc',
+                            padding: '10px',
+                            margin: '10px',
+                            width: '250px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                        }}
+                    >
+                        <strong>Marca:</strong> {cel.marca} <br />
+                        <strong>Modelo:</strong> {cel.modelo} <br />
+                        <strong>Preço:</strong> {cel.preco} <br />
+                        <strong>Memória:</strong> {cel.memoria} <br />
+                        <strong>Cor:</strong> {cel.cor} <br />
+                        <strong>Processador:</strong> {cel.processador} <br />
+                        <strong>Composição da Bateria:</strong> {cel.composicaoBateria} <br />
+                        <strong>Tamanho da Tela:</strong> {cel.tamanhoTela} <br />
+                        <strong>Hertz da Tela:</strong> {cel.hertzTela} <br />
+                        <strong>Câmera:</strong> {cel.camera} <br />
+                        <strong>Sistema Operacional:</strong> {cel.sistemaOperacional} <br />
+                        <strong>Descrição:</strong> {cel.descricao} <br />
+                        <strong>Avaliação:</strong> {cel.avaliacao} <br />
+                        <strong>Armazenamento:</strong> {cel.armazenamento} <br />
+                        <strong>Peso:</strong> {cel.peso} <br />
+                        <strong>Dimensão:</strong> {cel.dimensao} <br />
+                        <strong>Conector:</strong> {cel.conector} <br />
+                        <strong>Carregador:</strong> {cel.carregador} <br />
+                        <strong>Número de Série:</strong> {cel.numeroDeSerie} <br />
+                        <strong>Fone:</strong> {cel.fone} <br />
+                        <strong>Quantidade de Chips:</strong> {cel.quantidadeChips} <br />
+                        <strong>Entrada MicroSD:</strong> {cel.entradaMicroSD} <br />
 
+                        <button onClick={() => removerCelular(index)}>Remover</button>
+                </div>
+            ))}
+        </div>
+
+    </ul>
     </>
     )
 }
